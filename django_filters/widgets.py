@@ -158,6 +158,8 @@ class BaseCSVWidget(forms.Widget):
         if value is not None:
             if value == '':  # empty value should parse as an empty list
                 return []
+            if isinstance(value, list):
+                return value
             return value.split(',')
         return None
 
